@@ -8,6 +8,24 @@ echo "Starting 99-custom.sh at $(date)" >> $LOGFILE
 echo "编译固件大小为: $PROFILE MB"
 echo "Include Docker: $INCLUDE_DOCKER"
 
+# 接入 dllkids 25.12 x86_64 预编译 APK 源，供 ImageBuilder 构建阶段解析第三方包。
+DLLKIDS_FEED_URL="https://down.dllkids.xyz/openwrt-feed/25.12/x86_64/packages.adb"
+DLLKIDS_KEY_URL="https://down.dllkids.xyz/openwrt-feed/keys/dllkids-feed.pub.pem"
+echo "Configuring dllkids APK feed: $DLLKIDS_FEED_URL"
+if [ ! -f repositories ]; then
+    echo "Error: ImageBuilder repositories file not found!"
+    exit 1
+fi
+mkdir -p keys
+if ! wget -q "$DLLKIDS_KEY_URL" -O keys/dllkids-feed.pub.pem; then
+    echo "Error: failed to download dllkids APK public key!"
+    exit 1
+fi
+sed -i '/down\.dllkids\.xyz\/openwrt-feed/d' repositories
+echo "$DLLKIDS_FEED_URL" >> repositories
+echo "Current ImageBuilder repositories:"
+cat repositories
+
 echo "Create pppoe-settings"
 mkdir -p  /home/build/immortalwrt/files/etc/config
 

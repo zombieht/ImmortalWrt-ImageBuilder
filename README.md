@@ -48,6 +48,16 @@ x86-64/build25.sh                           # x86-64 25.12.x ImageBuilder 构建
 x86-64/imm25.config                         # x86-64 25.12.x ImageBuilder 配置
 ```
 
+## 第三方 APK 源
+
+构建脚本已接入 dllkids 25.12 x86_64 预编译 APK 源：
+
+```text
+https://down.dllkids.xyz/openwrt-feed/25.12/x86_64/packages.adb
+```
+
+该源只用于 ImageBuilder 构建阶段解析和下载预编译包。
+
 ## ISO 安装器说明
 
 ISO 工作流会先构建 x86-64 EFI 固件，再调用 `wukongdaily/img-installer` 生成 ISO 安装器。ISO 启动后，在命令行输入 `ddd` 可进入安装菜单并选择目标磁盘。

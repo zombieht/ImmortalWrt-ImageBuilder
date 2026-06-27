@@ -2,6 +2,12 @@
 
 本仓库仅保留 ImmortalWrt 25.12.x 构建，第三方软件使用 APK 包格式。
 
+构建阶段已接入 dllkids 25.12 x86_64 预编译 APK 源：
+
+```text
+https://down.dllkids.xyz/openwrt-feed/25.12/x86_64/packages.adb
+```
+
 ## 配置位置
 
 - 第三方软件选择：`shell/apk-custom-packages.sh`
@@ -15,6 +21,7 @@
 | --- | --- |
 | `luci-app-store` | iStore 应用商店，可通过工作流 `enable_store` 开关自动集成 |
 | `luci-i18n-quickstart-zh-cn` | 首页和网络向导 |
+| `luci-app-adguardhome` | AdGuardHome DNS 去广告 |
 | `luci-app-run` | Run 安装器 |
 | `luci-app-quickfile` | 文件管理器 |
 | `luci-theme-aurora` | Aurora 主题 |
