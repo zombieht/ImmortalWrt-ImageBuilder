@@ -20,7 +20,7 @@
 | `luci-theme-aurora` | Aurora 主题 |
 | `luci-app-partexp` | 分区扩容 |
 | `luci-app-bandix` | 流量监控 |
-| `luci-app-mosdns` | DNS 分流 |
+| `luci-app-mosdns` | DNS 分流，当前 25.12 x86-64 仓库未提供，默认不启用 |
 | `luci-app-ssr-plus` | 代理工具 |
 | `luci-app-passwall2` | 代理工具 |
 | `luci-app-rtp2httpd` | IPTV 流媒体转发 |
